@@ -1,3 +1,3 @@
-| Name   | Version | License | Author                       | URL                              | Description                           |
-|--------|---------|---------|------------------------------|----------------------------------|---------------------------------------|
-| loguru | 0.7.3   | UNKNOWN | Delgan <delgan.py@gmail.com> | https://github.com/Delgan/loguru | Python logging made (stupidly) simple |
+| Name | Version | License | Author                            | URL                                  | Description                                                                            |
+|------|---------|---------|-----------------------------------|---------------------------------------|------------------------------------------------------------------------------------------|
+| prov | 3.1.1   | MIT     | Trung Dong Huynh <trungdong@donggiang.com> | https://github.com/trungdong/prov | A library for W3C Provenance Data Model supporting PROV-JSON, PROV-XML, PROV-O (RDF) and PROV-JSONLD |

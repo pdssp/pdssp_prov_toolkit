@@ -1,62 +1,29 @@
-# Operations manual
+# Operations Manual
 
 ## General
 
-*The* `SUM` *shall contain the
-operational organisation, a reference schedule for each operational
-profile, the list of all the elementary operations to be carried out at
-the site, what to do in order to operate the site, the personnel
-responsible to do it and when.*
+Not applicable: PDSSP Prov Toolkit is a library, not a deployed service. There is no set-up,
+launch configuration, session, or termination sequence of its own to document — importing it has
+no side effects (it configures no logging, opens no connections, reads no configuration files),
+and there is nothing left running afterwards to stop.
 
-## Set‐up and initialisation
+For installing and building on top of the library, see:
 
-*The* `SUM` *shall describe any
-procedures to be performed by the user in order to be identified or
-authorised to access or install software on the equipment, to perform
-the installation, to configure the software, to delete or overwrite
-former files or data, and to enter parameters for software operation.*
+- [Tutorial](tutorial.md) — a worked example building, rendering, and serving a PROV-DM document.
+- [Reference Manual](reference_manual.md) — the full function/constant reference.
+- [Operations Environment](operations_environment.md) — what a consuming environment needs.
 
-## Getting started
+## Error Conditions
 
-*The* `SUM` *shall include the
-step‐by‐step procedures for beginning work, including any options
-available, and a check‐list for problem determination.*
+This package raises nothing of its own — see [Reference Manual § Errors](reference_manual.md#errors)
+for the ordinary `prov`/Python exceptions a misuse can still surface, and each function's own
+docstring for its exact contract.
 
-## Mode selection and control
+## Troubleshooting
 
-*The* `SUM` *shall give an overview of
-the access and security features of the software that are visible to the
-user, and in particular:*
-
-- How and from whom to obtain a password
-- How to add, delete, or change passwords under user control
-- Security and privacy considerations pertaining to the storage and    marking of output reports and other media that the user can generate
-
-## Normal operations
-
-*The* `SUM` *shall identify the normal
-operations, to be performed by the user, for the use of software
-(function, menu, transaction, or other process being described),
-including description and options of menus, graphical icons, data entry
-forms, user inputs, inputs from other software or hardware that may
-affect the software's interface with the user, outputs, diagnostic or
-error messages or alarms.*
-
-## Normal termination
-
-*The* `SUM` *shall describe how the user
-can cease or interrupt use of the software and how to determine whether
-normal termination or cessation has occurred.*
-
-## Error conditions
-
-*The* `SUM` *shall describe the common
-error conditions that can occur as a result of executing the function,
-and how to detect that the error has occurred.*
-
-## Recover runs
-
-*The* `SUM` *shall include the detailed
-procedures for restart or recovery from errors or malfunctions occurring
-during processing and for ensuring continuity of operations in the event
-of emergencies.*
+Nothing package-specific has come up yet. If `render_prov_html`'s graph fails to render in the
+browser, check first whether the pinned Viz.js CDN URL
+(`https://cdn.jsdelivr.net/npm/viz.js@2.1.2`) is reachable from the client and whether its
+Subresource Integrity hash still matches — a version bump of that pin (in `html.py`) must update
+both the URL and the two `integrity="sha384-..."` hashes together, or the browser will refuse to
+run the (now mismatched) script.
