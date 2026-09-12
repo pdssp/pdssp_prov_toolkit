@@ -6,7 +6,7 @@ authors = [{name="Jean-Christophe Malapert", email="jean-christophe.malapert@cne
 license = "Apache-2.0"
 packages = [{include = "pdssp_prov_toolkit"}]
 homepage = "https://gitlab.cnes.fr/pdssp/pdssp_prov_toolkit"
-version = "1.0.0"
+version = "1.0.1"
 requires-python = ">=3.12"
 dependencies = [
     "prov>=3.1.0",
