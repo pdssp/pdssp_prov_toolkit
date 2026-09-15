@@ -1,7 +1,7 @@
 include:
   # No docker component: this is a pure library (installed as a plain
   # dependency by its consumers), never built into a runnable image.
-  - component: $CI_SERVER_FQDN/to-be-continuous/python/gitlab-ci-python@9.6.1
+  - component: $CI_SERVER_FQDN/to-be-continuous/python/gitlab-ci-python@9.6.2
     inputs:
       dep-groups: "dev"
       pytest-enabled: true
