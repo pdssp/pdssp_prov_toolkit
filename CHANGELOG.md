@@ -1,3 +1,10 @@
+## [1.1.1](https://gitlab.cnes.fr/pdssp/common/pdssp_prov_toolkit/compare/v1.1.0...v1.1.1) (2026-09-16)
+
+
+### Bug Fixes
+
+* Give PROV extension attributes an explicit pdssp: namespace prefix ([05514b6](https://gitlab.cnes.fr/pdssp/common/pdssp_prov_toolkit/commit/05514b68e3ba26ff53e22bf8818abc14eb4273c6))
+
 # [1.1.0](https://gitlab.cnes.fr/pdssp/common/pdssp_prov_toolkit/compare/v1.0.1...v1.1.0) (2026-09-16)
 
 
