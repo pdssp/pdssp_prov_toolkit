@@ -36,6 +36,22 @@ class TestNewDocument:
         namespaces = {ns.prefix: ns.uri for ns in doc.get_registered_namespaces()}
         assert namespaces["foaf"] == "https://example.org/foaf#"
 
+    def test_pdssp_namespace_is_registered_for_extension_attributes(self):
+        # Same URI as the default namespace, but under an explicit prefix --
+        # see ProvAttr's docstring: this is what lets its "pdssp:"-prefixed
+        # extension attributes (license, crs, ...) round-trip through
+        # PROV-JSON-LD instead of serializing as a raw expanded IRI.
+        doc = new_document(BASE_URL)
+        namespaces = {ns.prefix: ns.uri for ns in doc.get_registered_namespaces()}
+        assert namespaces["pdssp"] == f"{BASE_URL}/prov#"
+
+    def test_extension_attribute_compacts_in_jsonld_instead_of_expanding(self):
+        doc = new_document(BASE_URL)
+        doc.entity("item-1", {ProvAttr.LICENSE: "CC-BY-4.0"})
+        serialized = doc.serialize(format="jsonld")
+        assert '"pdssp:license"' in serialized
+        assert f'"{BASE_URL}/prov#license"' not in serialized
+
 
 class TestSlug:
     def test_lowercases_and_hyphenates(self):

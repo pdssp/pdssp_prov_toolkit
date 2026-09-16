@@ -51,6 +51,10 @@ def new_document(base: str, foaf_ns: str = FOAF_NS) -> ProvDocument:
     doc = ProvDocument()
     doc.set_default_namespace(f"{base}/prov#")
     doc.add_namespace("foaf", foaf_ns)
+    # Same URI as the default namespace, but under an explicit prefix: see
+    # .vocab.ProvAttr's docstring for why its "pdssp:"-prefixed extension
+    # attributes need this to round-trip through PROV-JSON-LD.
+    doc.add_namespace("pdssp", f"{base}/prov#")
     return doc
 
 

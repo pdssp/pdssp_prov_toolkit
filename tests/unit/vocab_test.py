@@ -21,9 +21,10 @@ class TestProvAttr:
         assert ProvAttr.LABEL == "prov:label"
         assert ProvAttr.LOCATION == "prov:location"
 
-    def test_extension_keys_are_not_namespaced(self):
-        # Deliberately bare -- see the class docstring for why a "prov:"
-        # prefix on a non-core-vocabulary attribute breaks PROV-XML validation.
+    def test_extension_keys_use_the_pdssp_prefix_not_prov(self):
+        # See the class docstring: a "prov:" prefix on a non-core-vocabulary
+        # attribute breaks PROV-XML validation, and leaving it bare breaks
+        # PROV-JSON-LD round-tripping -- "pdssp:" is the fix for both.
         for key in (
             ProvAttr.VERSION,
             ProvAttr.IDENTIFIER,
@@ -32,6 +33,7 @@ class TestProvAttr:
             ProvAttr.CRS,
         ):
             assert not key.startswith("prov:")
+            assert key.startswith("pdssp:")
 
     def test_foaf_keys_are_namespaced(self):
         assert ProvAttr.FOAF_NAME == "foaf:name"

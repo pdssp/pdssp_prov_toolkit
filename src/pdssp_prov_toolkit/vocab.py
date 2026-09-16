@@ -37,18 +37,25 @@ class ProvAttr:
     #: for the fixed set of terms PROV-XML's schema actually knows, and a
     #: validator (ProvToolbox/ProvStore) rejects an unrecognized ``prov:*``
     #: element/attribute outright rather than treating it as an extension
-    #: point. A bare name instead resolves against the document's own
-    #: default namespace, which is how any extension attribute must be
-    #: declared.
-    VERSION = "version"
+    #: point. They use the ``pdssp:`` prefix instead (bound by
+    #: :func:`~.document.new_document` to the same URI as the document's own
+    #: default namespace) rather than being left bare: ``prov``'s own
+    #: PROV-JSON-LD serializer never compacts an unprefixed term against
+    #: ``@vocab``, so a bare extension attribute round-trips as a raw
+    #: expanded IRI (e.g. ``"https://example.org/prov#license"``) -- which
+    #: at least one real PROV-JSON-LD consumer (a Jackson-based
+    #: ``Namespace.stringToQualifiedName()``) then fails to parse back,
+    #: since it only recognises terms with an explicit prefix mapping in
+    #: ``@context``, not ones relying on ``@vocab`` alone.
+    VERSION = "pdssp:version"
     #: The identifier (e.g. a STAC item/collection id) an entity represents.
-    IDENTIFIER = "identifier"
+    IDENTIFIER = "pdssp:identifier"
     #: Machine-readable schema URL alongside a human-readable LOCATION.
-    SCHEMA = "schema"
+    SCHEMA = "pdssp:schema"
     #: The license terms an entity is distributed/available under.
-    LICENSE = "license"
+    LICENSE = "pdssp:license"
     #: The coordinate reference system an entity's geometry uses.
-    CRS = "crs"
+    CRS = "pdssp:crs"
     FOAF_NAME = "foaf:name"
     FOAF_HOMEPAGE = "foaf:homepage"
 
