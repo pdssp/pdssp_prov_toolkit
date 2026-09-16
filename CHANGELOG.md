@@ -1,3 +1,10 @@
+# [1.1.0](https://gitlab.cnes.fr/pdssp/common/pdssp_prov_toolkit/compare/v1.0.1...v1.1.0) (2026-09-16)
+
+
+### Features
+
+* Add JSON-LD support ([5d55d5d](https://gitlab.cnes.fr/pdssp/common/pdssp_prov_toolkit/commit/5d55d5d84e0744b150ea4ab252ce9e78882fbba5))
+
 ## [1.0.1](https://gitlab.cnes.fr/pdssp/common/pdssp_prov_toolkit/compare/v1.0.0...v1.0.1) (2026-09-12)
 
 
