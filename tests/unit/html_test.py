@@ -54,6 +54,7 @@ class TestRenderProvHtml:
         assert '?format=json&collection_id=ctx' in page
         assert '?format=provn&collection_id=ctx' in page
         assert '?format=xml&collection_id=ctx' in page
+        assert '?format=jsonld&collection_id=ctx' in page
 
     def test_no_query_suffix_by_default(self):
         page = render_prov_html(dot="digraph provenance {}", base=BASE_URL, subtitle_html="x")

@@ -23,7 +23,7 @@ same-rank nodes is often wider or taller than one screen, and forcing it
 to fit would shrink its text past legibility. Scrolling (or the browser's
 own zoom) is the tradeoff that keeps the labels readable.
 
-The page also links to the raw PROV-JSON / PROV-N / PROV-XML
+The page also links to the raw PROV-JSON / PROV-N / PROV-XML / PROV-JSON-LD
 serialisations, which are plain, standard PROV-DM documents that can be
 pasted or uploaded into ProvStore (https://openprovenance.org/store/) or
 any other PROV-DM-compliant tool -- this page does not call out to
@@ -88,9 +88,9 @@ def render_prov_html(
     query_suffix:
         An already-escaped, already-``&``-prefixed query-string suffix
         (e.g. ``"&collection_id=foo&item_id=bar"`` or ``"&planet=mars"``)
-        appended to every format-switch link so re-fetching PROV-JSON/-N/-XML
-        preserves the same scope shown here. Empty string (default) for an
-        unscoped, whole-catalog document.
+        appended to every format-switch link so re-fetching PROV-JSON/-N/-XML/
+        JSON-LD preserves the same scope shown here. Empty string (default)
+        for an unscoped, whole-catalog document.
     footer_extra_html:
         Extra HTML appended to the footer paragraph (e.g. a link to a
         human-readable licenses/citation page) -- already-safe HTML,
@@ -144,13 +144,13 @@ def render_prov_html(
 <pre id="dot-source" hidden>{escape(dot)}</pre>
 
 <div class="formats">
-  Machine-readable: <a href="?format=json{query_suffix}">PROV-JSON</a><a href="?format=provn{query_suffix}">PROV-N</a><a href="?format=xml{query_suffix}">PROV-XML</a>
+  Machine-readable: <a href="?format=json{query_suffix}">PROV-JSON</a><a href="?format=provn{query_suffix}">PROV-N</a><a href="?format=xml{query_suffix}">PROV-XML</a><a href="?format=jsonld{query_suffix}">PROV-JSON-LD</a>
 </div>
 
 <footer>
   Rendered with the colour convention used throughout the PROV community (W3C PROV Primer,
-  ProvStore, ProvToolbox). The PROV-JSON / PROV-N / PROV-XML above are plain PROV-DM documents
-  that can be pasted or uploaded into
+  ProvStore, ProvToolbox). The PROV-JSON / PROV-N / PROV-XML / PROV-JSON-LD above are plain
+  PROV-DM documents that can be pasted or uploaded into
   <a href="https://openprovenance.org/store/" target="_blank" rel="noopener noreferrer">ProvStore</a>
   or any other PROV-DM-compliant tool.{footer_extra_html}
 </footer>
